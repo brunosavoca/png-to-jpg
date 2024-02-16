@@ -4,8 +4,7 @@ import os
 from concurrent.futures import ProcessPoolExecutor
 import zipfile
 import shutil
-# import streamlit_analytics
-
+import streamlit_analytics
 
 def save_as_jpeg(png_path, jpg_path):
     try:
@@ -16,9 +15,9 @@ def save_as_jpeg(png_path, jpg_path):
     except Exception as e:
         return f"Error converting {png_path}: {str(e)}"
 
-# with streamlit_analytics.track():
-st.title("PNG to JPG Converter")
-uploaded_files = st.file_uploader("Choose PNG files", accept_multiple_files=True, type=['png', 'webp'])
+with streamlit_analytics.track():
+    st.title("PNG to JPG Converter")
+    uploaded_files = st.file_uploader("Choose PNG or WEBP files", accept_multiple_files=True, type=['png', 'webp'])
     
     if uploaded_files:
         output_dir = "output_images"
@@ -31,7 +30,7 @@ uploaded_files = st.file_uploader("Choose PNG files", accept_multiple_files=True
                 for uploaded_file in uploaded_files:
                     png_path = os.path.join(output_dir, uploaded_file.name)
                     jpg_path = os.path.join(output_dir, os.path.splitext(uploaded_file.name)[0] + '.jpg')
-                    # Saving the uploaded PNG file temporarily
+                    # Saving the uploaded PNG or WEBP file temporarily
                     with open(png_path, "wb") as f:
                         f.write(uploaded_file.getbuffer())
     
