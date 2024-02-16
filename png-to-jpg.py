@@ -4,6 +4,10 @@ import os
 from concurrent.futures import ProcessPoolExecutor
 import zipfile
 import shutil
+import streamlit as st
+import streamlit_analytics
+
+with streamlit_analytics.track():
 
 def save_as_jpeg(png_path, jpg_path):
     try:
