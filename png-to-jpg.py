@@ -19,7 +19,7 @@ def save_as_jpeg(png_path, jpg_path):
 
 with streamlit_analytics.track():
 
-st.title("PNG to JPG Converter")
+    st.title("PNG to JPG Converter")
 
     uploaded_files = st.file_uploader("Choose PNG files", accept_multiple_files=True, type=['png', 'webp'])
     
