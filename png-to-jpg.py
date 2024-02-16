@@ -17,7 +17,7 @@ def save_as_jpeg(png_path, jpg_path):
 
 st.title("PNG to JPG Converter")
 
-uploaded_files = st.file_uploader("Choose PNG files", accept_multiple_files=True, type='png')
+uploaded_files = st.file_uploader("Choose PNG files", accept_multiple_files=True, type=['png', 'webp'])
 
 if uploaded_files:
     output_dir = "output_images"
