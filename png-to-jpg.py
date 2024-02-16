@@ -7,7 +7,6 @@ import shutil
 import streamlit as st
 import streamlit_analytics
 
-with streamlit_analytics.track():
 
 def save_as_jpeg(png_path, jpg_path):
     try:
@@ -18,7 +17,7 @@ def save_as_jpeg(png_path, jpg_path):
     except Exception as e:
         return f"Error converting {png_path}: {str(e)}"
 
-
+with streamlit_analytics.track():
 st.title("PNG to JPG Converter")
 
 uploaded_files = st.file_uploader("Choose PNG files", accept_multiple_files=True, type=['png', 'webp'])
